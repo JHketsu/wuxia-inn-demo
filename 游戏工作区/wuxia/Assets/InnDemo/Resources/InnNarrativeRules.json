@@ -1,0 +1,352 @@
+{
+  "version": 1,
+  "truths": [
+    {
+      "id": "T01",
+      "label": "主动离房并参与取令",
+      "all": [
+        "admission"
+      ],
+      "any": [
+        "luggage",
+        "blood"
+      ]
+    },
+    {
+      "id": "T02",
+      "label": "知情请求并服用改貌药",
+      "all": [
+        "appearanceConsent"
+      ],
+      "any": [
+        "cup",
+        "wound",
+        "medicineNote"
+      ]
+    },
+    {
+      "id": "T03",
+      "label": "客人先下昏睡毒，改貌药并非主因",
+      "all": [
+        "poison",
+        "meal",
+        "bossTiming",
+        "companionTiming"
+      ],
+      "any": [
+        "poison",
+        "wound"
+      ]
+    },
+    {
+      "id": "T04",
+      "label": "桌边血来自同行者旧伤",
+      "all": [
+        "wound",
+        "blood",
+        "incident"
+      ],
+      "any": [
+        "blood",
+        "wound"
+      ]
+    },
+    {
+      "id": "T05",
+      "label": "老板曾拒绝交人并拦截客人",
+      "all": [
+        "hand",
+        "incident"
+      ],
+      "any": [
+        "hand"
+      ]
+    },
+    {
+      "id": "T06",
+      "label": "手令来自家中渠道，要求接管",
+      "all": [
+        "orderRead",
+        "signature"
+      ],
+      "any": [
+        "orderFound"
+      ]
+    },
+    {
+      "id": "T07",
+      "label": "隐瞒是担心被转交",
+      "all": [
+        "concern"
+      ],
+      "any": [
+        "admission"
+      ]
+    },
+    {
+      "id": "T08",
+      "label": "老板曾强送活人，后来放人结怨",
+      "all": [
+        "ledger",
+        "past"
+      ],
+      "any": [
+        "ledger"
+      ]
+    }
+  ],
+  "swordRoutes": [
+    {
+      "id": "S1",
+      "all": [
+        "awake",
+        "!sword",
+        "past",
+        "consent"
+      ]
+    },
+    {
+      "id": "S2",
+      "all": [
+        "awake",
+        "!sword",
+        "ledger",
+        "incident"
+      ]
+    },
+    {
+      "id": "S3",
+      "all": [
+        "awake",
+        "!sword"
+      ]
+    }
+  ],
+  "pacts": [
+    {
+      "id": "P1",
+      "all": [
+        "awake"
+      ]
+    },
+    {
+      "id": "P2",
+      "all": [
+        "awake",
+        "concern"
+      ]
+    },
+    {
+      "id": "P3",
+      "all": [
+        "awake",
+        "orderRead"
+      ]
+    }
+  ],
+  "dialogueVariants": [
+    {
+      "id": "sword_known_force",
+      "group": "afterSword",
+      "all": [
+        "pactAgreed",
+        "swordS3"
+      ],
+      "text": "她看着你从老板手中拿走剑，沉默片刻。\n「这把剑是怎么来的，我看见了。但我们说定的路，我没忘。」"
+    },
+    {
+      "id": "sword_known",
+      "group": "afterSword",
+      "all": [
+        "pactAgreed"
+      ],
+      "text": "你接稳了剑。她整理好衣袖，朝门口看了一眼。\n「照刚才说好的走。我跟着你。」"
+    },
+    {
+      "id": "sword_unknown_force",
+      "group": "afterSword",
+      "all": [
+        "swordS3"
+      ],
+      "text": "她看着你把剑收起。\n「我会跟你走。不过出了门以后，有些话我们得先说清楚。」"
+    },
+    {
+      "id": "sword_unknown",
+      "group": "afterSword",
+      "all": [],
+      "text": "老板把剑交给你。她看着你接稳，轻轻开口。\n「出了客栈以后，你打算怎么走？」"
+    },
+    {
+      "id": "pact_existing",
+      "group": "pactGreeting",
+      "all": [
+        "pactAgreed"
+      ],
+      "text": "「我们已经说定了。你是想再确认一句，还是有什么变了？」"
+    },
+    {
+      "id": "pact_new",
+      "group": "pactGreeting",
+      "all": [],
+      "text": "她扶着桌沿站稳，看向门外，又转过头等你开口。"
+    }
+  ],
+  "factCatalog": [
+    {
+      "id": "luggage",
+      "label": "未带走的行李",
+      "source": "E01",
+      "kind": "observation"
+    },
+    {
+      "id": "cup",
+      "label": "杯沿药渍",
+      "source": "E01",
+      "kind": "evidence"
+    },
+    {
+      "id": "medicineNote",
+      "label": "随行药笺",
+      "source": "E06/二楼",
+      "kind": "document"
+    },
+    {
+      "id": "wound",
+      "label": "旧伤与外貌",
+      "source": "E02",
+      "kind": "observation"
+    },
+    {
+      "id": "blood",
+      "label": "桌边血迹",
+      "source": "E03",
+      "kind": "observation"
+    },
+    {
+      "id": "orderFound",
+      "label": "找到手令",
+      "source": "E03",
+      "kind": "evidence"
+    },
+    {
+      "id": "orderRead",
+      "label": "读过手令",
+      "source": "E03",
+      "kind": "document"
+    },
+    {
+      "id": "hand",
+      "label": "手伤与柜台血滴",
+      "source": "E04",
+      "kind": "observation"
+    },
+    {
+      "id": "poison",
+      "label": "药包的药种",
+      "source": "E05",
+      "kind": "evidence"
+    },
+    {
+      "id": "meal",
+      "label": "残食粉末",
+      "source": "E05",
+      "kind": "evidence"
+    },
+    {
+      "id": "guestRoomSearched",
+      "label": "被翻动的客房行李",
+      "source": "E05",
+      "kind": "observation"
+    },
+    {
+      "id": "medicineLabels",
+      "label": "药箱标签",
+      "source": "E06",
+      "kind": "observation"
+    },
+    {
+      "id": "ledger",
+      "label": "镖号与旧账",
+      "source": "E07",
+      "kind": "document"
+    },
+    {
+      "id": "help",
+      "label": "老板提出救治协助",
+      "source": "E08/老板",
+      "kind": "testimony"
+    },
+    {
+      "id": "incident",
+      "label": "老板叙述倒地与交手",
+      "source": "E08/老板",
+      "kind": "testimony"
+    },
+    {
+      "id": "bossTiming",
+      "label": "老板叙述饭后售药",
+      "source": "E08/老板",
+      "kind": "testimony"
+    },
+    {
+      "id": "past",
+      "label": "老板承认活人镖旧事",
+      "source": "E08/老板",
+      "kind": "testimony"
+    },
+    {
+      "id": "wakeConversation",
+      "label": "已进入醒后对话",
+      "source": "E08/同行者",
+      "kind": "presentation"
+    },
+    {
+      "id": "admission",
+      "label": "同行者承认取令",
+      "source": "E08/同行者",
+      "kind": "testimony"
+    },
+    {
+      "id": "appearanceConsent",
+      "label": "同行者确认自愿改貌",
+      "source": "E08/同行者",
+      "kind": "testimony"
+    },
+    {
+      "id": "companionTiming",
+      "label": "同行者叙述昨夜顺序",
+      "source": "E08/同行者",
+      "kind": "testimony"
+    },
+    {
+      "id": "signature",
+      "label": "同行者识别手令",
+      "source": "E08/同行者",
+      "kind": "testimony"
+    },
+    {
+      "id": "concern",
+      "label": "同行者表达转交担忧",
+      "source": "E08/同行者",
+      "kind": "testimony"
+    },
+    {
+      "id": "treatment",
+      "label": "救治完成",
+      "source": "E02",
+      "kind": "event"
+    },
+    {
+      "id": "timing",
+      "label": "两份时间证词已齐",
+      "source": "derived",
+      "kind": "derived"
+    },
+    {
+      "id": "emptyBed",
+      "label": "呼唤后发现旁边床位无人",
+      "source": "E00/己方房间",
+      "kind": "observation"
+    }
+  ]
+}
