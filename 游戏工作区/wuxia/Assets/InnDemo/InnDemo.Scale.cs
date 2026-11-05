@@ -21,7 +21,9 @@ public partial class InnDemo
         foreach(float x in new[]{-.4f,.4f})foreach(float z in new[]{-.4f,.4f})Box(name+"桌腿",feet+new Vector3(x*width,.33f,z*depth),new(.08f,.66f,.08f),wood);
     }
     void FinishInterior(){
-        Box("客栈完整屋顶",new(0,RoofBottomY+.15f,5),new(20.3f,.3f,30.3f),new Color(.22f,.17f,.12f));
+        var ceiling=Box("客栈完整屋顶",new(0,RoofBottomY+.15f,5),new(20.3f,.3f,30.3f),new Color(.22f,.17f,.12f));
+        var ceilingMaterial=Resources.Load<Material>("InnDemo/Materials/CeilingPlanks_v001");
+        if(ceilingMaterial)ceiling.GetComponent<Renderer>().sharedMaterial=ceilingMaterial;
         Table("床边小几",new(-6.1f,UpperWalkY,9.6f),.55f,.5f);
         Box("行李包袱",new(-5.7f,UpperWalkY+.18f,10.6f),new(.5f,.36f,.35f),new Color(.25f,.29f,.24f));
         Box("床边药渍杯",new(-6.1f,UpperWalkY+.82f,9.6f),new(.09f,.12f,.09f),new Color(.63f,.58f,.45f));

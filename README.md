@@ -28,7 +28,7 @@
 
 ## 运行工程
 
-使用 **Unity 6000.0.60f1** 打开 `游戏工作区/wuxia`，加载 `Assets/Scenes/SampleScene.unity` 并进入 Play。灰盒场景与交互在运行时生成，退出 Play 后不保留运行时几何体。首次打开需要 Unity 下载依赖包。
+使用 **Unity 6000.0.60f1** 打开 `游戏工作区/wuxia`，加载 `Assets/Scenes/InnPlayable_v2.unity` 并进入 Play。灰盒场景与交互在运行时生成，退出 Play 后不保留运行时几何体。首次打开需要 Unity 下载依赖包。
 
 WASD 移动，鼠标或方向键控制镜头；E 交互与关闭，Q 凝神观察，J 手记，Tab 任务，F5/F9 存读档。完整说明见工程内试玩文档。
 

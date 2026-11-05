@@ -32,30 +32,7 @@ public partial class InnDemo
         GUI.skin.label.fontSize=20;GUI.skin.box.fontSize=20;GUI.skin.button.fontSize=20;GUI.skin.label.wordWrap=true;GUI.skin.box.wordWrap=true;
         if(won){DrawClueEnding(w,h);return;}
         if(journal){DrawJournal(w,h);return;}
-        if(dialogTitle!=null){DrawDialogue(w,h);return;}
-        if(showObjectives){Panel(new Rect(20,20,450,150));GUI.Label(new Rect(38,28,415,130),"当前目的 · Tab 收起\n\n"+CurrentObjective());}
-        else GUI.Label(new Rect(20,20,430,32),"荒夜客栈 · Tab 显示任务");
-        GUI.Label(new Rect(20,175,w-40,35),"WASD 移动 · 鼠标/方向键镜头 · E 交互/关闭 · Q 凝神观察 · J 手记 · Tab 任务 · Esc 关闭");
-        DrawDiscovery(scale,w,h);
-        if(Time.time<messageUntil){Panel(new Rect(20,h-115,w-40,95));GUI.Label(new Rect(40,h-105,w-80,80),message);}
-    }
-    void DrawDialogue(float w,float h){
-        float x=w/2-520;Panel(new Rect(x,220,1040,480));
-        string channel=narrativeMode==NarrativeMode.Dialogue?"交谈":narrativeMode==NarrativeMode.Observation?"所见":narrativeMode==NarrativeMode.Document?"读到的文字":"行动";
-        GUI.Label(new Rect(x+22,230,995,35),channel+" · "+dialogTitle);
-        GUI.Label(new Rect(x+22,273,995,innerThought==null?145:95),dialogText);
-        if(innerThought!=null){GUI.contentColor=new Color(.85f,.8f,.65f);GUI.Label(new Rect(x+22,370,995,48),"女主 · 心想："+innerThought);GUI.contentColor=Color.white;}
-        var snapshot=options.ToArray();for(int i=0;i<snapshot.Length;i++){
-            float bw=snapshot.Length>5?485:995;float bx=x+22+(snapshot.Length>5?i%2*505:0);float by=420+(snapshot.Length>5?i/2:i)*43;
-            bool read=snapshot[i].trackRead&&story.ChoiceWasRead(snapshot[i].id);var style=new GUIStyle(GUI.skin.button);
-            style.normal.background=null;style.hover.background=null;style.active.background=null;style.focused.background=null;
-            var oldColor=GUI.color;GUI.color=new Color(.14f,.15f,.15f);GUI.DrawTexture(new Rect(bx,by,bw,39),Texture2D.whiteTexture);GUI.color=oldColor;
-            style.normal.textColor=read?new Color(.7f,.81f,.84f):new Color(.96f,.89f,.71f);
-            style.hover.textColor=read?new Color(.8f,.85f,.86f):Color.white;
-            if(GUI.Button(new Rect(bx,by,bw,39),(read?"[已读] ":"")+snapshot[i].text,style))snapshot[i].action();
-        }
-        GUI.Label(new Rect(x+22,654,650,32),"灰蓝文字 / [已读]：此前选过，仍可再次交谈");
-        if(GUI.Button(new Rect(x+795,653,220,35),"[E / Esc] 关闭"))CloseDialog();
+        if(dialogTitle==null) DrawDiscovery(scale,w);
     }
     void DrawJournal(float w,float h){
         float x=w/2-580;Panel(new Rect(x,35,1160,650));

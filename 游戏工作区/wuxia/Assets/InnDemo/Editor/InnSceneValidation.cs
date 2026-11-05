@@ -8,7 +8,13 @@ public static class InnSceneValidation
 {
     [MenuItem("Tools/Inn Demo/Validate Scene Scale And Camera")]
     public static void MenuRun(){Debug.Log(Run());}
-    static Bounds Bounds(string name){var g=GameObject.Find(name);if(g==null)throw new Exception("Missing scene object: "+name);return g.GetComponent<Renderer>().bounds;}
+    static Bounds Bounds(string name){
+        var demo=UnityEngine.Object.FindFirstObjectByType<InnDemo>();
+        if(demo&&demo.buildingAssembly){
+            string path=name=="客栈完整屋顶"?"Architecture/Ceiling":name=="Upstairs room"?"Rooms/West_02/Floor":name=="Counter"?"Furniture/Counter":null;
+            if(path!=null){var rs=demo.buildingAssembly.Find(path).GetComponentsInChildren<Renderer>();var b=rs[0].bounds;foreach(var r in rs)b.Encapsulate(r.bounds);return b;}
+        }
+        var g=GameObject.Find(name);if(g==null)throw new Exception("Missing scene object: "+name);return g.GetComponent<Renderer>().bounds;}
     public static string Run(){
         var demo=UnityEngine.Object.FindFirstObjectByType<InnDemo>();if(demo==null)throw new Exception("Enter Play mode first.");
         var failures=new List<string>();var roof=Bounds("客栈完整屋顶");var floor=Bounds("Upstairs room");
@@ -26,7 +32,9 @@ public static class InnSceneValidation
         if(follower!=null&&follower.enabled&&Mathf.Abs(follower.bounds.size.y-1.7f)>.02f)failures.Add("Companion world collider height");
         var saved=player.transform.position;float oldYaw=(float)type.GetField("yaw",flags).GetValue(demo),oldPitch=(float)type.GetField("pitch",flags).GetValue(demo);int samples=0;
         try{
-            foreach(var position in new[]{new Vector3(-5,4.5f,9.3f),new Vector3(1.25f,4.5f,10),new Vector3(-.1f,4.5f,9.4f)}){
+            foreach(var position in demo.buildingAssembly
+                ?new[]{new Vector3(-4.5f,4.5f,12.3f),new Vector3(0,4.5f,13),new Vector3(-1.3f,4.5f,13)}
+                :new[]{new Vector3(-5,4.5f,9.3f),new Vector3(1.25f,4.5f,10),new Vector3(-.1f,4.5f,9.4f)}){
                 player.enabled=false;player.transform.position=position;player.enabled=true;Physics.SyncTransforms();
                 foreach(float yaw in new[]{0f,45,90,135,180,225,270,315})foreach(float pitch in new[]{-15f,18,45,65}){
                     type.GetField("yaw",flags).SetValue(demo,yaw);type.GetField("pitch",flags).SetValue(demo,pitch);type.GetMethod("ResetCamera",flags).Invoke(demo,null);type.GetMethod("UpdateInteriorCamera",flags).Invoke(demo,null);

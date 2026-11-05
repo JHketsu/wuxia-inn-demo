@@ -1,3 +1,11 @@
+## 2026-11-04：建筑 v2 可玩整合
+
+当前测试入口：`Assets/Scenes/InnPlayable_v2.unity`（Build Settings 第一项）。独立素材场景 `InnArtPreview_v2`、原灰盒 `SampleScene` 均保留。打开新入口后按 Play，人物、剧情道具与交互沿用现有运行时生成方式。
+
+建筑使用素材对话产出的六房间 Assembly；二楼西侧中间双床房为出生房，西侧靠楼梯的单床房为昨夜客人的房间，另四间关门。大堂使用新桌椅及柜台，人物、15 个交互锚点已适配新布局。接入脚本为 `InnDemo.Building.cs`，场景组件 `buildingAssembly` 指定建筑实例；未绑定时仍使用原灰盒。
+
+验证、位置表与截图见工作区 `Docs/Scene/客栈Demo_建筑v2玩法整合_2026-11-04.md`。
+
 # 荒夜客栈 · 剧情 v1
 
 Unity 6000.0.60f1。打开 Assets/Scenes/SampleScene.unity 并 Play；灰盒与交互在运行时生成，退出 Play 后不保留运行时几何体。设计来源：项目根目录 Docs/Narrative/客栈Demo_剧情与探索设计交接_v1.md。

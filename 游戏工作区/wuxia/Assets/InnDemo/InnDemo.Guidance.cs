@@ -30,7 +30,7 @@ public partial class InnDemo
         if(Mathf.Abs(anchor.position.y-player.transform.position.y-1)>1.9f)return false;
         return !Physics.Linecast(player.transform.position+Vector3.up*HeroEyeY,anchor.position);
     }
-    void DrawDiscovery(float scale,float width,float height){
+    void DrawDiscovery(float scale,float width){
         var nearest=Nearest();bool scanning=Time.time<scanUntil;
         foreach(var marker in markers){
             if(!scanning&&(nearest==null||nearest.target!=marker.anchor))continue;
@@ -41,7 +41,6 @@ public partial class InnDemo
         }
         GUI.color=Color.white;
         if(scanning)GUI.Label(new Rect(width/2-150,210,300,35),"凝神观察 · "+Mathf.CeilToInt(scanUntil-Time.time)+" 秒");
-        if(nearest!=null)GUI.Box(new Rect(width/2-280,height-180,560,45),"[E] "+ObjectLabel(nearest.name));
     }
     void ReadDocument(string title,string text,params string[] ids){foreach(var id in ids)Fact(id);Show(title,text,NarrativeMode.Document);}
 }
