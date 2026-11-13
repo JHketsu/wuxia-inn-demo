@@ -1,0 +1,114 @@
+title: BossTalk
+position: 0,0
+---
+<<declare $sword = false>>
+<<declare $awake = false>>
+<<declare $wound = false>>
+<<declare $threatened = false>>
+<<declare $poison = false>>
+<<declare $ledger = false>>
+<<declare $accused = false>>
+<<declare $corrected = false>>
+<<declare $appearanceConsent = false>>
+<<if $sword>>
+老板: 「姑娘还有什么想问的？」 #line:boss_intro_sword_1
+<<elseif $awake>>
+老板: 「醒了就好。姑娘伤还没稳，路上慢些走。」 #line:boss_intro_awake_1
+<<elseif $wound>>
+老板: 他放下擦剑的布，望了一眼桌边。 #line:boss_intro_wound_1
+老板: 「你醒了。我看她呼吸还稳，只是一直叫不应。」 #line:boss_intro_wound_2
+<<else>>
+老板: 他抬起头，手里的布停了下来。 #line:boss_intro_default_1
+老板: 「你在找同来的姑娘？她似是睡在大堂了。我看她呼吸还稳，只是一直叫不应。」 #line:boss_intro_default_2
+<<endif>>
+
+// 选项文字和出现条件在这里，各话题的回答见下方节点。
+-> 「老板，和我同行的那位姑娘似是昏迷不醒，你可知发生了什么事？」 <<if not $awake>> #line:boss_help
+    <<jump Boss_AskForHelp>>
+-> 「老板请跟我讲实话，昨夜究竟出了什么事？」 #line:boss_incident
+    <<jump Boss_WhatHappened>>
+-> 「说！为何害她！」 #line:boss_accuse
+    <<jump Boss_Accuse>>
+-> 「你退开。药我自己拿，不许再碰她。」 <<if not $awake>> #line:boss_threaten
+    <<jump Boss_KeepAway>>
+-> 「她吃饭和服换容药，哪个在先？」 <<if $poison>> #line:boss_timing
+    <<jump Boss_MealAndMedicine>>
+-> 「旧账上送的那些人，都愿意跟你走么？」 <<if $ledger>> #line:boss_past
+    <<jump Boss_OldLedger>>
+-> 「改貌是她自己要的。方才是我判断太快。」 <<if $accused and not $corrected and $appearanceConsent>> #line:boss_correct
+    <<jump Boss_WithdrawAccusation>>
+-> 「我看路上不太平，老板可否借剑一用。」 <<if $awake and not $sword>> #line:boss_sword
+    <<jump Boss_AskForSword>>
+===
+
+// 求助与药箱
+title: Boss_AskForHelp
+position: 400,-300
+---
+<<inn_boss_choice help>>
+<<if $threatened>>
+老板: 「药箱照样能用。但先认清药种，我不碰她，你自己来。」 #line:boss_help_threatened_1
+<<else>>
+老板: 「早上我醒来就看她倒在那里。她昨日倒找我问过，住你们隔壁的客人的事。那客人不是善茬。你去房间看看兴许有线索。药箱在我右手边；认清了药，我帮你包扎。」 #line:boss_help_normal_1
+<<endif>>
+===
+
+// 追问昨夜
+title: Boss_WhatHappened
+position: 400,-100
+---
+<<inn_boss_choice incident>>
+老板: 「她从楼上回来，撑到桌边就倒了，旧伤直渗血。那客人非要我交人，我没答应，跟他动了剑，手也伤了。他不肯再闹大，走了。 #line:boss_reply_incident_1
+老板: 这剑上的血，有扶她时沾的。我只见她倒前摸过桌底，没看清放了什么。」 #line:boss_reply_incident_2
+===
+
+// 当面质问
+title: Boss_Accuse
+position: 400,100
+---
+<<inn_boss_choice accuse>>
+老板: 「年轻人，还是太冲动。换容药是她自己来买的，我没瞒她是什么。你若不信，等她醒来问她。眼下先救人，药箱我不锁。」 #line:boss_reply_accuse_1
+===
+
+// 要求老板退开
+title: Boss_KeepAway
+position: 400,300
+---
+<<inn_boss_choice threaten>>
+老板: 他松开手，退了半步。 #line:boss_reply_threaten_1
+老板: 「好，我不碰。药箱在右边。你照带来的药笺办，别把药用错。」 #line:boss_reply_threaten_2
+===
+
+// 追问用药先后
+title: Boss_MealAndMedicine
+position: 840,-300
+---
+<<inn_boss_choice timing>>
+老板: 「先吃的饭，后来才向我买换容药。客人发现东西丢了，是再后面的事。他没认出她的脸，却盯上了衣服，追问原先那个金发住客。 #line:boss_reply_timing_1
+老板: 我没看见他下药，不敢说她是哪一口吃中的。」 #line:boss_reply_timing_2
+===
+
+// 追问旧账
+title: Boss_OldLedger
+position: 840,-100
+---
+<<inn_boss_choice past>>
+老板: 他把布折了又折。 #line:boss_reply_past_1
+老板: 「有一个不愿意。我还是照约交了人。后来听说被关着，再没消息。最后怎样，我不知道。 #line:boss_reply_past_2
+老板: 再后来我放走过另一个，害那客人赔了钱，也得罪了雇主。我退了这行，却没断干净。如今说一句按约办事，也遮不住。」 #line:boss_reply_past_3
+===
+
+// 修正指控
+title: Boss_WithdrawAccusation
+position: 840,100
+---
+<<inn_boss_choice correct>>
+老板: 「肯回头核对，就好。但我的旧事，也不会因此变干净。带她走吧。」 #line:boss_reply_correct_1
+===
+
+// 借剑，进入游戏中的取剑对话
+title: Boss_AskForSword
+position: 840,300
+---
+<<inn_boss_choice sword>>
+===

@@ -1,0 +1,12 @@
+{
+  "projectFileVersion": 3,
+  "sourceFiles": [
+    "*.yarn"
+  ],
+  "baseLanguage": "zh-Hans",
+  "localisation": {
+    "en": {
+      "strings": "Boss.en.csv"
+    }
+  }
+}

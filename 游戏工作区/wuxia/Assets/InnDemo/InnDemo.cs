@@ -6,7 +6,7 @@ public partial class InnDemo : MonoBehaviour
 {
     CharacterController player; Camera cam; Transform body, companion, sword, boss; GameObject door;
     CharacterController follower;
-    bool blood, medicine, awake, armed, opened, won; float yaw=90, pitch=18, vertical, messageUntil; string message="你在陌生客栈二楼醒来。下楼寻找同行者。";
+    bool blood, medicine, awake, armed, opened, won; float yaw=90, pitch=18, vertical, messageUntil; string message;
     class Clue { public Transform target; public string name; public System.Action action; }
     readonly System.Collections.Generic.List<Clue> clues=new();
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)] static void Boot(){ var scene=SceneManager.GetActiveScene(); foreach(var root in scene.GetRootGameObjects()) if(root.GetComponentInChildren<InnDemo>(true)) return; new GameObject("Inn Demo").AddComponent<InnDemo>(); }
@@ -16,6 +16,7 @@ public partial class InnDemo : MonoBehaviour
     void Add(Transform t,string n,System.Action a){clues.Add(new Clue{target=t,name=n,action=a});}
     void Say(string s){message=s;messageUntil=Time.time+7;}
     void Start(){
+        message=Copy("story_opening_01");
         foreach(var c in FindObjectsByType<Camera>(FindObjectsSortMode.None)) c.gameObject.SetActive(false);
         foreach(var existingLight in FindObjectsByType<Light>(FindObjectsSortMode.None))existingLight.gameObject.SetActive(false);
         var wood=new Color(.25f,.13f,.07f);var wall=new Color(.55f,.43f,.29f);
@@ -40,22 +41,25 @@ public partial class InnDemo : MonoBehaviour
         remedy.SetActive(false);
         var p=new GameObject("女主");p.transform.position=new(-5,UpperWalkY+.15f,9.3f);player=p.AddComponent<CharacterController>();player.height=HeroHeight;player.center=new(0,HeroHeight/2,0);player.radius=.27f;player.stepOffset=.35f;player.skinWidth=.03f;
         body=Person("女主占位模型",p.transform.position+Vector3.up*(HeroHeight/2),new Color(.62f,.16f,.22f),HeroHeight,.54f);Destroy(body.GetComponent<Collider>());body.SetParent(p.transform);
+        AttachHeroModel();
         cam=new GameObject("Follow camera").AddComponent<Camera>();cam.nearClipPlane=.08f;cam.gameObject.AddComponent<AudioListener>();
         RenderSettings.ambientLight=new Color(.65f,.58f,.48f);var light=new GameObject("Warm daylight").AddComponent<Light>();light.type=LightType.Directional;light.intensity=1;light.shadows=LightShadows.Soft;light.transform.rotation=Quaternion.Euler(45,-30,0);
         BuildStory(stain.transform);
         FinishInterior();
         if(buildingAssembly) IntegrateBuilding(); else AttachExteriorPreview();
+        AttachCompanionModel();
+        AttachCounterModels();
         Cursor.lockState=CursorLockMode.Locked;messageUntil=12;
     }
-    void Open(bool broken){ story.opened=true;story.broken=broken;opened=true;door.SetActive(false);Say(broken?"你撞断了旧门闩。老板看了一眼门：走吧，别在路上耽搁。":(story.pact>0?"门闩抬起，门外天色将明。照说好的，等她一起走。":"门闩抬起，门外天色将明。离开前，还有话要和她说。")); }
+    void Open(bool broken){ story.opened=true;story.broken=broken;opened=true;door.SetActive(false);Say(broken?Copy("story_open_01"):(story.pact>0?Copy("story_open_02"):Copy("story_open_03"))); }
     Clue Nearest(){Clue best=null;float d=2.5f;foreach(var c in clues){if(!c.target.gameObject.activeInHierarchy)continue;var delta=c.target.position-(player.transform.position+Vector3.up);if(Mathf.Abs(delta.y)>1.9f)continue;float n=delta.magnitude;if(n<d && !Physics.Linecast(player.transform.position+Vector3.up*HeroEyeY,c.target.position,out var hit)){d=n;best=c;}}return best;}
     void Update(){if(player==null)return;var k=Keyboard.current;var m=Mouse.current;if(k==null)return;
         if(k.f5Key.wasPressedThisFrame)SaveStory();if(k.f9Key.wasPressedThisFrame){LoadStory();return;}
         if(k.rKey.wasPressedThisFrame && (won || k.leftCtrlKey.isPressed)){SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);return;}
         if(k.mKey.wasPressedThisFrame && !won && !journal){ToggleHudMenu();return;}
         if(k.tabKey.wasPressedThisFrame)showObjectives=!showObjectives;
-        if(k.jKey.wasPressedThisFrame){journal=!journal;dialogTitle=null;SetCursor(journal);return;}
-        if(k.escapeKey.wasPressedThisFrame){if(hudMenuOpen){ToggleHudMenu();return;}if(departing){departing=false;Say("你停在门边，回头等她。");return;}if(dialogTitle!=null||journal){CloseDialog();journal=false;}else SetCursor(Cursor.lockState==CursorLockMode.Locked);return;}
+        if(k.jKey.wasPressedThisFrame){journal=!journal;if(journal)journalOverview=false;dialogTitle=null;SetCursor(journal);return;}
+        if(k.escapeKey.wasPressedThisFrame){if(hudMenuOpen){ToggleHudMenu();return;}if(departing){departing=false;Say(Copy("story_update_01"));return;}if(dialogTitle!=null||journal){CloseDialog();journal=false;}else SetCursor(Cursor.lockState==CursorLockMode.Locked);return;}
         if(dialogTitle!=null && k.eKey.wasPressedThisFrame){CloseDialog();return;}
         if(won||dialogTitle!=null||journal||hudMenuOpen)return;
         if(departing){TickDeparture();return;}
@@ -76,6 +80,6 @@ public partial class InnDemo : MonoBehaviour
         }
         sword.Rotate(0,armed?0:Mathf.Sin(Time.time*4)*Time.deltaTime*12,0);
     }
-    void LateUpdate(){UpdateInteriorCamera();UpdateHud();}
+    void LateUpdate(){UpdateActorModels();UpdateInteriorCamera();UpdateHud();UpdateGameJournal();}
     void OnGUI(){DrawStoryUI();}
 }

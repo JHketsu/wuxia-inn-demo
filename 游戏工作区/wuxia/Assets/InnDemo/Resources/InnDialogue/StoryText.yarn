@@ -1,0 +1,209 @@
+// 这些节点按场景归档文案。游戏通过行尾 ID 读取正文。
+
+// 角色称呼与继续交谈
+title: Story_SharedLabels
+position: 0,0
+---
+老板 #line:speaker_boss
+同行者 #line:speaker_companion
+女主 #line:speaker_hero
+女主 · 心想 #line:speaker_thought
+继续交谈 #line:story_continueconversation_01
+===
+
+// 开场与客栈调查
+title: Story_Opening
+position: 430,0
+---
+床边的行李与杯子 #line:story_buildstory_01
+两人的包袱放在床边。杯沿凝着一圈浅色药渍。 #line:story_buildstory_02
+她的包袱还在，出去看看人在哪。 #line:story_buildstory_03
+好久没睡着么沉的叫了，今天收拾好就该上路了，要送萧姑娘回家呢。 #line:story_buildstory_04
+原照顾者留下的药笺 #line:story_buildstory_05
+昏睡散：使人沉睡，伤重者尤甚。辨明药种后，以对应解药服下；若旧伤出血，须另行清创包扎。 #line:story_buildstory_06
+换容药：仅易容貌，不可作解药。 #line:story_buildstory_06__2
+笺末，是原照顾者熟悉的笔迹：路上留着，莫急着乱用药。 #line:story_buildstory_06__3
+残食与药粉 #line:story_buildstory_07
+纸包上写着「昏睡散」。碗底剩下的粉末，与包里的一样。 #line:story_buildstory_08
+昏睡散……这倒像她的症状。去看看药箱里有没有对应的解药。 #line:story_buildstory_09
+桌边的血迹 #line:story_buildstory_10
+桌沿上有一道沾血的擦痕。血点落到她躺过的位置，桌底一根木条上还有新划痕。 #line:story_buildstory_11
+她倒下前碰过这里？那根木条像是松的。 #line:story_buildstory_12
+柜台前的血滴 #line:story_buildstory_13
+几滴血落在柜台脚边。老板握布的手缠着绷带，边缘仍渗着红。 #line:story_buildstory_14
+这里也有人受了伤。问问他昨夜发生了什么。 #line:story_buildstory_15
+旧账与剑鞘 #line:story_buildstory_16
+翻开的账页上，交付的不是货物，而是人。几笔款项旁有同一个客人的记号。剑鞘刻着旧镖号。 #line:story_buildstory_17
+他从前走过活人镖？这几笔往来，得听他亲口说。 #line:story_buildstory_18
+女主 · 心想 #line:story_buildstory_19
+天快亮了。昨夜说好，今日由我陪她继续上路。先叫她起来，看看伤势如何。␠ #line:story_buildstory_19__2
+你在陌生客栈二楼醒来。下楼寻找同行者。 #line:story_opening_01
+===
+
+// 借剑与确认取剑
+title: Story_Sword
+position: 860,0
+---
+他下意识拢了拢受伤的手。 #line:story_swordtalk_01
+「你想拿这把剑？」 #line:story_swordtalk_01__2
+「我会听她自己的意思。借你的剑，护我们一程。」 #line:story_swordtalk_02
+「她不该再为你的旧账冒险。这把剑，交给我护路。」 #line:story_swordtalk_03
+「把剑给我。」（逼他交剑……） #line:story_swordtalk_04
+「我再想想。」 #line:story_swordtalk_05
+老板的剑 #line:story_confirmsword_01
+老板：我愿交剑防身，但我自己也少了一分自保。愿你别替她决定去留。 #line:story_confirmsword_02
+老板：剑给你，算我承担的一份。别把我说成恩人；没了剑，这店也未必保得住。 #line:story_confirmsword_03
+你将手按向剑。老板看了眼受伤的手，没有迎上来：我不愿再伤人，你要拿，便拿。你也看到了我拿什么守店。 #line:story_confirmsword_04
+确认 #line:story_confirmsword_05
+夺取 #line:story_confirmsword_06
+接过 #line:story_confirmsword_07
+这把剑 #line:story_confirmsword_08
+剑已在你手中 #line:story_confirmsword_09
+暂不取剑 #line:story_confirmsword_10
+===
+
+// 药箱与救治
+title: Story_Medicine
+position: 0,240
+---
+柜台药箱 #line:story_medicinetalk_01
+药箱分着几格，标签分别写着「换容」「昏睡散解药」。旁边叠着干净的绷带。 #line:story_medicinetalk_02
+药种对得上。拿解药和绷带，回她身边。 #line:story_medicinetalk_03
+先别乱用。得知道她为何昏迷。 #line:story_medicinetalk_04
+核对药种 #line:story_medicinetalk_05
+几种药不能混着试。得先知道她中了什么；若老板知道昨夜的事，先问问他。 #line:story_medicinetalk_06
+取得对应解药与绷带 #line:story_medicinetalk_07
+已取得救治物品 #line:story_medicinetalk_08
+你取出标好的解药和一卷绷带，收进随身的药囊。 #line:story_medicinetalk_09
+女主 · 心想：回她身边去。 #line:story_medicinetalk_09__2
+老板按住绷带，你喂下对应解药；她渐渐睁眼。 #line:story_heal_01
+你依药笺喂药，重新包扎旧伤；她渐渐睁眼。 #line:story_heal_02
+===
+
+// 同行者对白与选项
+title: Story_Companion
+position: 430,240
+---
+她的伤势 #line:story_companiontalk_01
+你俯下身。她呼吸尚稳，衣下旧伤却又渗出了血。你唤了两声，没有回应。 #line:story_companiontalk_02
+脸和发色都变了……但这衣服、这道伤，是她。先想办法让她醒来。 #line:story_companiontalk_03
+请老板协助解毒、重新包扎 #line:story_companiontalk_04
+依药笺独自解毒、重新包扎 #line:story_companiontalk_05
+想想随行的药笺 #line:story_companiontalk_06
+随行药笺 #line:story_companiontalk_07
+那张药笺还夹在二楼的行李里。上面记过几种常见毒物的用法。 #line:story_companiontalk_08
+她的目光停在那页纸上，手指收紧。 #line:story_companiontalk_09
+「你读过了？上面叫你看管我，你……怎么想？」 #line:story_companiontalk_09__2
+她睁开眼，先望向空着的客房门。 #line:story_companiontalk_10
+「昨夜那个客人……走了么？」 #line:story_companiontalk_10__2
+她扶着桌沿，呼吸比方才平稳些。 #line:story_companiontalk_11
+「你还有什么想问的？」 #line:story_companiontalk_11__2
+␀ #line:story_companiontalk_12
+她：改貌是我主动找老板买的，不是他逼我。你先别认定是他下的毒。 #line:story_companiontalk_12__2
+「昨夜我歇下后，你去了哪里？」 #line:story_companiontalk_13
+「我吃过饭，向老板买了换容药。他告诉了我是什么，是我自己要喝的。 #line:story_companiontalk_14
+趁那客人离房，我进去拿了手令。回来才突然发沉，旧伤也裂了……纸塞在桌底的松木条后。至少它没落回他手里。」 #line:story_companiontalk_14__2
+「你是不是有什么事，一直没敢告诉我？」 #line:story_companiontalk_15
+「我看见那客人拿着家里的手令，怕你见了，就觉得送到他手里也算履约。 #line:story_companiontalk_16
+我答应跟你回去，也答应帮你查事……可不是谁来接，我都愿意跟。那时候，我还不敢先问你。」 #line:story_companiontalk_16__2
+「这签押你认得么？他们要把你交给谁？」 #line:story_companiontalk_17
+她把纸举近些，指着暗记。 #line:story_companiontalk_18
+「这是家里用的。只凭这道手令，我还不知道是谁安排的。可我认识这句『等待接应』——他们没打算问我愿不愿意。 #line:story_companiontalk_18__2
+所以我才先拿过来。我想留着它，回去也有得问。」 #line:story_companiontalk_18__3
+把手令归还给她 #line:story_companiontalk_19
+她把手令仔细折好。 #line:story_companiontalk_20
+「谢谢。你想知道什么，可以问我。别让这张纸替我答应。」 #line:story_companiontalk_20__2
+「先放我这里，可好？你要看时就拿去。」 #line:story_companiontalk_21
+「好，先放你那里。要用时给我看，别悄悄把它交出去。」 #line:story_companiontalk_22
+「有人要接你，我会先问你的意思。」 #line:story_companiontalk_23
+她：那遇到家里来人，先跟我谈。别只在这时说给我听。 #line:story_companiontalk_24
+「刚才说好的路，我想再谈谈。」 #line:story_companiontalk_25
+「出了客栈，我们接下来怎么走？」 #line:story_companiontalk_26
+===
+
+// 发现与阅读手令
+title: Story_SealedOrder
+position: 860,240
+---
+桌底 · 新划痕 #line:story_ordertalk_01
+血迹终点旁的木条刚被推回。里面露出纸角，像是有人仓促藏下的私人物件。 #line:story_ordertalk_02
+挪开木条，取出纸页 #line:story_ordertalk_03
+手令 ·␠ #line:story_ordertalk_04
+由你持有 #line:story_ordertalk_05
+已归还她 #line:story_ordertalk_06
+曾经发现 #line:story_ordertalk_07
+纸页被折得很紧，边缘蹭着血。封口已经撕开，里面似有一份手令。 #line:story_ordertalk_08
+阅读手令 #line:story_ordertalk_09
+手令正文 #line:story_ordertalk_10
+「找到后，就地看管，等待接应。」 #line:story_ordertalk_11
+落款处有签押，旁边压着一个细小暗记。 #line:story_ordertalk_11__2
+===
+
+// 商量与确认离店约定
+title: Story_TravelAgreement
+position: 0,480
+---
+离店约定 #line:story_pacttalk_01
+她仍没有睁眼，听不见你的问话。 #line:story_pacttalk_02
+「我答应亲自送你，就不会把这件事交给旁人。」 #line:story_pacttalk_03
+「继续回去。但接应、改道、交接，我们都先商量。」 #line:story_pacttalk_04
+「先查清这道手令和接应的人，再定怎么回去。」 #line:story_pacttalk_05
+「你亲自送，我信得过。只是路上若有变故，也听听我怎么说。」 #line:story_confirmpact_01
+「好。遇到接应的人，先让我知道。别替我答应，我也不瞒着你改道。」 #line:story_confirmpact_02
+「好，先查清楚。我不是要反悔，只是不想这么糊里糊涂地被带回去。」 #line:story_confirmpact_03
+双方确认 #line:story_confirmpact_04
+说定接下来的路 #line:story_confirmpact_05
+她点了点头，整理好衣袖。 #line:story_confirmpact_06
+「那就这样说定。走之前，你若还有话，我听着。」 #line:story_confirmpact_06__2
+===
+
+// 正门与离店
+title: Story_Departure
+position: 430,480
+---
+客栈正门 #line:story_exittalk_01
+她还昏迷着。先辨毒、救醒并包扎，不能把她留下。 #line:story_exittalk_02
+女主 · 心想：她能走了。路上未必太平，我得向老板要件防身的兵器。 #line:story_exittalk_03
+她看着你手里的剑，像是还有话要说。 #line:story_exittalk_04
+「出了这道门以后，你打算怎么办？」 #line:story_exittalk_04__2
+门外晨光渐亮。她正缓缓走来，等一等，就能一起上路。 #line:story_exittalk_05
+抬起门闩，开门 #line:story_exittalk_06
+再谈刚才的约定（可选） #line:story_exittalk_07
+与她商量接下来的路 #line:story_exittalk_08
+你撞断了旧门闩。老板看了一眼门：走吧，别在路上耽搁。 #line:story_open_01
+门闩抬起，门外天色将明。照说好的，等她一起走。 #line:story_open_02
+门闩抬起，门外天色将明。离开前，还有话要和她说。 #line:story_open_03
+你停在门边，回头等她。 #line:story_update_01
+女主 · 心想 #line:story_begindeparture_01
+等她走到门边，再一起出去。 #line:story_begindeparture_01__2
+===
+
+// 存档与读档提示
+title: Story_SaveAndLoad
+position: 860,480
+---
+进度已保存（F9 读取）。 #line:story_savestory_01
+还没有剧情 v1 存档，按 F5 保存。 #line:story_loadstory_01
+已读取：线索、物件归属、约定与剑的来由均已恢复。 #line:story_loadstory_02
+存档无法读取： #line:story_loadstory_03
+===
+
+// 离店结局
+title: Story_Endings
+position: 0,720
+---
+亲自履约 #line:story_ending_01
+她：你亲自送我，我记下了。路上的决定，我们还得继续谈。 #line:story_ending_01__2
+共同决定 #line:story_ending_02
+她：遇到家中来人，先商量。今天我们说定的，我会记着。 #line:story_ending_02__2
+暂缓交付 #line:story_ending_03
+她：先核实手令和接应。一起走，答案还没到该替我写下的时候。 #line:story_ending_03__2
+托付 · 老板：剑交给你，愿你记住她的意愿。我也得想想这店怎么守。 #line:story_ending_04
+追责 · 老板：这是我担的代价，不是求你们谢我。 #line:story_ending_05
+夺取 · 老板看着空剑架：拿去吧。这一步是你选的。 #line:story_ending_06
+门闩断在身后。 #line:story_ending_07
+门在身后缓缓合上。 #line:story_ending_08
+手令收在她怀里。 #line:story_ending_09
+手令仍由你保管。 #line:story_ending_10
+还有一些事留在了客栈。 #line:story_ending_11
+===

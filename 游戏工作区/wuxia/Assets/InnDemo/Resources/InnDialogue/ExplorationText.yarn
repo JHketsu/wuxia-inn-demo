@@ -1,0 +1,66 @@
+title: ExplorationText
+---
+己方行李与杯子 #line:hotspot_luggage_and_cup
+随行药笺 #line:hotspot_medicine_note
+昨夜客房：药粉与残食 #line:hotspot_guest_meal
+检查同行者 / 交谈 #line:hotspot_companion
+桌边血迹 #line:hotspot_table_blood
+桌底松动木条 #line:hotspot_hidden_order
+柜台血滴与手伤 #line:hotspot_counter_blood
+老板：交谈 #line:hotspot_innkeeper
+药箱与药物标签 #line:hotspot_medicine_chest
+剑鞘镖号与旧账 #line:hotspot_ledger
+正门与离店约定 #line:hotspot_front_door
+叫同行者起床 / 查看床铺 #line:hotspot_empty_bed
+房牌 · 你们的房间 #line:hotspot_own_room_sign
+房牌 · 昨夜客人的房间 #line:hotspot_guest_room_sign
+客房的被褥与行李 #line:hotspot_guest_luggage
+空床铺 #line:exploration_buildupstairsrooms_01
+床褥仍掀在一旁，枕边没有人。 #line:exploration_buildupstairsrooms_02
+她还在楼下，先顾她的伤。 #line:exploration_buildupstairsrooms_03
+旁边的床位 #line:exploration_buildupstairsrooms_04
+你轻唤她的名字，没有回应。走近才看见，被子掀在床脚，床上已经没人了。 #line:exploration_buildupstairsrooms_05
+人呢？包袱还没拿走。先下楼看看。 #line:exploration_buildupstairsrooms_06
+你们的房门 #line:exploration_buildupstairsrooms_07
+两张床、一盏灯。昨夜你们在这里歇下，行李还搁在床边。 #line:exploration_buildupstairsrooms_08
+沿走廊往南，能到楼梯。 #line:exploration_buildupstairsrooms_09
+另一间客房 #line:exploration_buildupstairsrooms_10
+房门朝走廊开着。里面只有一张床，食桌上的碗碟还没撤。 #line:exploration_buildupstairsrooms_11
+这应是老板提到的那间。 #line:exploration_buildupstairsrooms_12
+匆忙留下的行李 #line:exploration_buildguestroom_01
+箱盖没扣上，里头几件衣物揉作一团。床褥被掀开，枕头滚到了床脚。 #line:exploration_buildguestroom_02
+走得这样急，连箱子也没收。先看看桌上留下了什么。 #line:exploration_buildguestroom_03
+叫同行者起床 #line:exploration_currentobjective_01
+今日要继续护送她上路。先去旁边床位叫她。 #line:exploration_currentobjective_01__2
+寻找同行者 #line:exploration_currentobjective_02
+旁边床位空着，行李却还在。下楼找找她。 #line:exploration_currentobjective_02__2
+查明她为何昏迷 #line:exploration_currentobjective_03
+老板提到二楼靠楼梯、门开着的单床房。去看看。 #line:exploration_currentobjective_03__2
+查明她为何昏迷 #line:exploration_currentobjective_04
+药笺说须先辨明药种。问问老板，或找找昨夜留下的痕迹。 #line:exploration_currentobjective_04__2
+先设法救她 #line:exploration_currentobjective_05
+她呼吸尚稳，却叫不醒。问问老板昨夜发生了什么。 #line:exploration_currentobjective_05__2
+寻找对应的解药 #line:exploration_currentobjective_06
+已辨出昏睡散。查看柜台右侧药箱的标签。 #line:exploration_currentobjective_06__2
+核对救治方法 #line:exploration_currentobjective_07
+解药与绷带已备好。二楼行李中的药笺记有用法。 #line:exploration_currentobjective_07__2
+回到她身边救治 #line:exploration_currentobjective_08
+解药与绷带已备好，检查她并选择救治方式。 #line:exploration_currentobjective_08__2
+准备上路 #line:exploration_currentobjective_09
+她已经醒来。向老板谈谈借剑防身的事。 #line:exploration_currentobjective_09__2
+与她说定接下来的路 #line:exploration_currentobjective_10
+离开之前，听听她的想法，确认护送约定。 #line:exploration_currentobjective_10__2
+一同离开客栈 #line:exploration_currentobjective_11
+前往正门，抬起门闩。 #line:exploration_currentobjective_11__2
+一同离开客栈 #line:exploration_currentobjective_12
+等她跟上，再一起越过门槛。 #line:exploration_currentobjective_12__2
+行李与杯子 #line:exploration_objectlabel_01
+留下的碗碟 #line:exploration_objectlabel_02
+与她交谈 #line:exploration_objectlabel_03
+查看同行者 #line:exploration_objectlabel_04
+柜台旁的血滴 #line:exploration_objectlabel_05
+旧账与剑鞘 #line:exploration_objectlabel_06
+正门 #line:exploration_objectlabel_07
+凝神观察 ·␠ #line:exploration_drawdiscovery_01
+␠秒 #line:exploration_drawdiscovery_02
+===

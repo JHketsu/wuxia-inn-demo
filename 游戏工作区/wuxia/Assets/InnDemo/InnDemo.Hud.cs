@@ -104,7 +104,7 @@ public partial class InnDemo
         HudImage(hudTask,hudFrame,true).pixelsPerUnitMultiplier = 4;
         var taskPlate = Top(hudTask,"任务牌",14,-15,170,32);
         HudImage(taskPlate,hudPlate,true).pixelsPerUnitMultiplier = 9;
-        HudText(Top(taskPlate,"任务标题",0,0,170,32),"当前所寻 · Tab",16,TextAnchor.MiddleCenter);
+        HudText(Top(taskPlate,"任务标题",0,0,170,32),Copy("interface_buildhud_01"),16,TextAnchor.MiddleCenter);
         hudGoal = HudText(Top(hudTask,"目标",18,27,314,27),"",20);
         hudHint = HudText(Top(hudTask,"下一步",18,58,314,58),"",17);
 
@@ -112,14 +112,14 @@ public partial class InnDemo
         HudButton(menuButton,ToggleHudMenu);
         menuButton.GetComponent<Image>().pixelsPerUnitMultiplier = 8;
         HudImage(Top(menuButton,"双卷轴",8,4,36,36),HudSprite("Scroll")).preserveAspect = true;
-        HudText(Top(menuButton,"菜单文字",48,0,62,45),"菜单 M",20,TextAnchor.MiddleCenter);
+        HudText(Top(menuButton,"菜单文字",48,0,62,45),Copy("interface_buildhud_02"),20,TextAnchor.MiddleCenter);
         var triangle = HudSprite("Triangle");
         hudArrow = HudImage(Top(menuButton,"展开箭头",115,14,17,17),triangle);
         hudArrow.preserveAspect = true;
         hudMenu = HudRect(root.transform,"快捷键",topRight,topRight,new Vector2(-24,-73),new Vector2(304,278));
         HudImage(hudMenu,hudFrame,true).pixelsPerUnitMultiplier = 4;
         HudText(Top(hudMenu,"快捷键说明",18,15,270,250),
-            "WASD  移动   Shift  加速\n鼠标 / 方向键  转动镜头\nE  交互 / 关闭   Q  凝神观察\nJ  手记   Tab  任务   M  菜单\nF  撞门   Esc  返回 / 切换光标\nF5  保存   F9  读取\nCtrl + R  重开   R  结局后重开",17).lineSpacing = 1.4f;
+            Copy("interface_buildhud_03"),17).lineSpacing = 1.4f;
 
         hudDialogue = HudRect(root.transform,"对话框",bottom,bottom,new Vector2(0,22),new Vector2(1144,210));
         HudImage(hudDialogue,hudFrame,true).pixelsPerUnitMultiplier = 3;
@@ -144,7 +144,7 @@ public partial class InnDemo
         var close = HudRect(hudDialogue,"关闭",Vector2.zero,Vector2.zero,new Vector2(648,12),new Vector2(166,31));
         HudButton(close,CloseDialog);
         close.GetComponent<Image>().pixelsPerUnitMultiplier = 9;
-        HudText(Top(close,"关闭提示",0,0,166,31),"E / Esc  关闭",16,TextAnchor.MiddleCenter);
+        HudText(Top(close,"关闭提示",0,0,166,31),Copy("interface_buildhud_04"),16,TextAnchor.MiddleCenter);
         continueArrow = HudImage(HudRect(hudDialogue,"继续交谈",Vector2.zero,new Vector2(.5f,.5f),
             new Vector2(826,27),new Vector2(22,22)),triangle);
         continueArrow.preserveAspect = true;
@@ -203,18 +203,18 @@ public partial class InnDemo
             return;
         }
 
-        string title = dialogue ? dialogTitle : "女主";
+        string title = dialogue ? dialogTitle : Copy("speaker_hero");
         string bodyText = dialogue ? dialogText : message;
-        if (thought && bodyText.StartsWith("女主 · 心想\n")) bodyText = bodyText.Substring("女主 · 心想\n".Length);
-        if (dialogue && !string.IsNullOrEmpty(innerThought)) bodyText += "\n\n女主 · 心想  " + innerThought;
+        if (thought && bodyText.StartsWith(Copy("interface_updatehud_01"))) bodyText = bodyText.Substring(Copy("interface_updatehud_02").Length);
+        if (dialogue && !string.IsNullOrEmpty(innerThought)) bodyText += Copy("interface_updatehud_03") + innerThought;
         var choices = dialogue && !canContinue ? options.ToArray() : Array.Empty<(string text, Action action, string id, bool trackRead)>();
         string key = title + "\n" + bodyText + "|" + dialogue;
         foreach (var choice in choices) key += "|" + choice.text + story.ChoiceWasRead(choice.id);
         if (key == hudDialogueKey) return;
         hudDialogueKey = key;
         hudName.text = title;
-        hudPortrait.sprite = title == "同行者" ? companionPortrait :
-            thought || title.StartsWith("女主") ? heroPortrait : null;
+        hudPortrait.sprite = title == Copy("speaker_companion") ? companionPortrait :
+            thought || title.StartsWith(Copy("speaker_hero")) ? heroPortrait : null;
         hudPortrait.enabled = hudPortrait.sprite;
         hudPortrait.color = Color.white;
         hudDialogue.Find("关闭").gameObject.SetActive(dialogue);
@@ -239,7 +239,7 @@ public partial class InnDemo
             row.GetComponent<Image>().pixelsPerUnitMultiplier = 10;
             bool read = choice.trackRead && story.ChoiceWasRead(choice.id);
             var choiceRect = HudRect(row,"选项文字",new Vector2(0,1),new Vector2(0,1),new Vector2(12,-6),new Vector2(choiceWidth-24,24));
-            var choiceLabel = HudText(choiceRect,(read ? "[已读] " : "") + choice.text,17);
+            var choiceLabel = HudText(choiceRect,(read ? Copy("interface_updatehud_04") : "") + choice.text,17);
             if (read) choiceLabel.color = new Color(.7f,.81f,.84f);
             float height = Mathf.Max(34,choiceLabel.preferredHeight+12);
             choiceRect.sizeDelta = new Vector2(choiceWidth-24,height-12);

@@ -53,16 +53,16 @@ public partial class InnDemo
         foreach(var marker in markers)
         {
             var t=marker.anchor;string label=marker.label;
-            if(label=="己方行李与杯子")t.position=new(-7,5.25f,11.6f);
-            else if(label=="随行药笺")t.position=new(-7.15f,5.25f,11.9f);
-            else if(label=="叫同行者起床 / 查看床铺")t.position=new(-6,5.25f,12.8f);
-            else if(label=="昨夜客房：药粉与残食"||label=="客房的被褥与行李")t.position+=Vector3.forward*5;
-            else if(label=="房牌 · 你们的房间")t.position=new(-1.45f,5.65f,13);
-            else if(label=="房牌 · 昨夜客人的房间")t.position=new(-1.45f,5.65f,8.33f);
-            else if(label=="老板：交谈"||label=="药箱与药物标签"||label=="剑鞘镖号与旧账"||label=="柜台血滴与手伤")t.position+=Vector3.forward;
-            else if(label=="检查同行者 / 交谈")t.position=new(-3.4f,1.1f,1);
-            else if(label=="桌边血迹")t.position=new(-4.5f,1,-.4f);
-            else if(label=="桌底松动木条")t.position=new(-4.9f,.65f,-1);
+            if(label=="hotspot_luggage_and_cup")t.position=new(-7,5.25f,11.6f);
+            else if(label=="hotspot_medicine_note")t.position=new(-7.15f,5.25f,11.9f);
+            else if(label=="hotspot_empty_bed")t.position=new(-6,5.25f,12.8f);
+            else if(label=="hotspot_guest_meal"||label=="hotspot_guest_luggage")t.position+=Vector3.forward*5;
+            else if(label=="hotspot_own_room_sign")t.position=new(-1.45f,5.65f,13);
+            else if(label=="hotspot_guest_room_sign")t.position=new(-1.45f,5.65f,8.33f);
+            else if(label=="hotspot_innkeeper"||label=="hotspot_medicine_chest"||label=="hotspot_ledger"||label=="hotspot_counter_blood")t.position+=Vector3.forward;
+            else if(label=="hotspot_companion")t.position=new(-3.4f,1.1f,1);
+            else if(label=="hotspot_table_blood")t.position=new(-4.5f,1,-.4f);
+            else if(label=="hotspot_hidden_order")t.position=new(-4.9f,.65f,-1);
         }
         Box("桌沿血痕",new(-5.35f,.768f,-.65f),new(.45f,.012f,.23f),new Color(.35f,.015f,.01f),false);
         Box("证据松木条",new(-5.32f,.48f,-1.55f),new(.65f,.08f,.08f),new Color(.42f,.28f,.13f),false);

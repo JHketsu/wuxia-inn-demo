@@ -17,7 +17,24 @@ using UnityEngine;
     static InnNarrativeRules cached;
     public static void Reload(){cached=null;}
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)] static void ResetOnPlay(){Reload();}
-    public static InnNarrativeRules Current {get {if(cached==null){var asset=Resources.Load<TextAsset>("InnNarrativeRules");if(asset==null)throw new InvalidOperationException("Missing InnNarrativeRules.json");cached=JsonUtility.FromJson<InnNarrativeRules>(asset.text);}return cached;}}
+    public static InnNarrativeRules Current {get {if(cached==null){var asset=Resources.Load<TextAsset>("InnNarrativeRules");if(asset==null)throw new InvalidOperationException("Missing InnNarrativeRules.json");cached=JsonUtility.FromJson<InnNarrativeRules>(asset.text);cached.ResolveText();}return cached;}}
+    void ResolveText()
+    {
+        foreach (var fact in factCatalog)
+        {
+            fact.label = InnText.Get(fact.label);
+            fact.source = InnText.Get(fact.source);
+        }
+
+        foreach (var group in new[] { truths, swordRoutes, pacts, dialogueVariants })
+        foreach (var rule in group)
+        {
+            if (!string.IsNullOrEmpty(rule.label))
+                rule.label = InnText.Get(rule.label);
+            if (!string.IsNullOrEmpty(rule.text))
+                rule.text = InnText.Get(rule.text);
+        }
+    }
     public InnRule Find(InnRule[] rules,string id){foreach(var rule in rules)if(rule.id==id)return rule;return null;}
     public string Dialogue(string group,InnStoryState state){foreach(var rule in dialogueVariants)if(rule.group==group&&rule.Matches(state))return rule.text;return "";}
 }

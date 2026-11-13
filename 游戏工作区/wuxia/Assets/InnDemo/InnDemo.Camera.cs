@@ -5,7 +5,7 @@ public partial class InnDemo
     const float CameraDistance=3.4f, CameraRadius=.22f;
     float cameraDistance=CameraDistance, cameraDistanceVelocity;
     bool cameraInitialized;
-    Renderer heroRenderer;
+    Renderer[] heroRenderers;
     bool heroHidden;
     void ResetCamera(){cameraInitialized=false;cameraDistance=CameraDistance;cameraDistanceVelocity=0;}
     bool CameraObstacle(Transform target){
@@ -29,10 +29,10 @@ public partial class InnDemo
         cameraDistance=Mathf.Min(cameraDistance,desired);
         cam.transform.position=focus+offset.normalized*cameraDistance;
         cam.transform.rotation=Quaternion.Euler(pitch,yaw,0);
-        if(heroRenderer==null)heroRenderer=body.GetComponent<Renderer>();
-        // At extremely close distances hide only the heroine's placeholder mesh,
+        if(heroRenderers==null)heroRenderers=new[]{body.GetComponent<Renderer>()};
+        // At extremely close distances hide only the heroine's renderers,
         // not the walls or ceiling; collision and movement remain active.
         if(!heroHidden&&cameraDistance<1.05f)heroHidden=true;else if(heroHidden&&cameraDistance>1.25f)heroHidden=false;
-        heroRenderer.enabled=!heroHidden;
+        foreach(var renderer in heroRenderers) renderer.enabled=!heroHidden;
     }
 }

@@ -21,12 +21,12 @@ public partial class InnDemo
         Box("走廊南端护栏",new(1.25f,UpperWalkY+.6f,.5f),new(3.5f,1.2f,.15f),wood);
         Box("走廊临空护栏",new(3,UpperWalkY+.6f,2.7f),new(.15f,1.2f,4.1f),wood);
         Bed("同行者床",new(-3.2f,UpperWalkY,10),new Color(.25f,.4f,.43f));
-        Hotspot("叫同行者起床 / 查看床铺",new(-3.2f,UpperWalkY+.9f,9.1f),()=>{
-            if(story.Has("wound"))Observe("空床铺","床褥仍掀在一旁，枕边没有人。","她还在楼下，先顾她的伤。","emptyBed");
-            else Observe("旁边的床位","你轻唤她的名字，没有回应。走近才看见，被子掀在床脚，床上已经没人了。","人呢？包袱还没拿走。先下楼看看。","emptyBed");
+        Hotspot("hotspot_empty_bed",new(-3.2f,UpperWalkY+.9f,9.1f),()=>{
+            if(story.Has("wound"))Observe(Copy("exploration_buildupstairsrooms_01"),Copy("exploration_buildupstairsrooms_02"),Copy("exploration_buildupstairsrooms_03"),"emptyBed");
+            else Observe(Copy("exploration_buildupstairsrooms_04"),Copy("exploration_buildupstairsrooms_05"),Copy("exploration_buildupstairsrooms_06"),"emptyBed");
         });
-        Hotspot("房牌 · 你们的房间",new(-.15f,UpperWalkY+1.3f,9.4f),()=>Observe("你们的房门","两张床、一盏灯。昨夜你们在这里歇下，行李还搁在床边。","沿走廊往南，能到楼梯。"));
-        Hotspot("房牌 · 昨夜客人的房间",new(-.15f,UpperWalkY+1.3f,4),()=>Observe("另一间客房","房门朝走廊开着。里面只有一张床，食桌上的碗碟还没撤。","这应是老板提到的那间。"));
+        Hotspot("hotspot_own_room_sign",new(-.15f,UpperWalkY+1.3f,9.4f),()=>Observe(Copy("exploration_buildupstairsrooms_07"),Copy("exploration_buildupstairsrooms_08"),Copy("exploration_buildupstairsrooms_09")));
+        Hotspot("hotspot_guest_room_sign",new(-.15f,UpperWalkY+1.3f,4),()=>Observe(Copy("exploration_buildupstairsrooms_10"),Copy("exploration_buildupstairsrooms_11"),Copy("exploration_buildupstairsrooms_12")));
     }
     void RoomFront(string name,float x,float minZ,float maxZ,float doorZ,bool closed,Color doorColor){
         Color wall=new(.48f,.38f,.27f);float low=doorZ-.8f,high=doorZ+.8f;
@@ -46,7 +46,7 @@ public partial class InnDemo
         Box("开着的箱子",new(-3.3f,UpperWalkY+.25f,2.6f),new(.8f,.5f,.5f),wood);
         Box("箱盖",new(-3.3f,UpperWalkY+.55f,2.3f),new(.8f,.6f,.08f),wood);
         Box("留在箱中的布料",new(-3.3f,UpperWalkY+.51f,2.6f),new(.6f,.08f,.35f),cloth);
-        Hotspot("客房的被褥与行李",new(-3,UpperWalkY+.85f,3.6f),()=>Observe("匆忙留下的行李","箱盖没扣上，里头几件衣物揉作一团。床褥被掀开，枕头滚到了床脚。","走得这样急，连箱子也没收。先看看桌上留下了什么。","guestRoomSearched"));
+        Hotspot("hotspot_guest_luggage",new(-3,UpperWalkY+.85f,3.6f),()=>Observe(Copy("exploration_buildguestroom_01"),Copy("exploration_buildguestroom_02"),Copy("exploration_buildguestroom_03"),"guestRoomSearched"));
     }
     Dictionary<string,string> Snapshot(){var values=new Dictionary<string,string>();foreach(var field in typeof(InnStoryState).GetFields(BindingFlags.Public|BindingFlags.Instance))if(field.FieldType==typeof(bool)||field.FieldType==typeof(int))values[field.Name]=field.GetValue(story).ToString();return values;}
     void Audit(Dictionary<string,string> before,string source){foreach(var entry in Snapshot())if(before.TryGetValue(entry.Key,out var old)&&old!=entry.Value)story.Record(source+" | "+entry.Key+": "+old+" → "+entry.Value);}

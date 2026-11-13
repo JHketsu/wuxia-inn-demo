@@ -1,0 +1,74 @@
+title: JournalText
+---
+亲自履约 #line:journal_departuretitle_01
+共同决定 #line:journal_departuretitle_02
+暂缓交付 #line:journal_departuretitle_03
+一同离店 #line:journal_departuretitle_04
+托付 #line:journal_swordtitle_01
+追责 #line:journal_swordtitle_02
+夺取 #line:journal_swordtitle_03
+未定 #line:journal_swordtitle_04
+随身与约定 #line:journal_draworganizednotes_01
+同行者 · 已醒，伤已包扎 #line:journal_draworganizednotes_02
+同行者 ·␠ #line:journal_draworganizednotes_03
+尚待救治 #line:journal_draworganizednotes_04
+还未找到 #line:journal_draworganizednotes_05
+救治物品 · 药已用下，绷带已换 #line:journal_draworganizednotes_06
+救治物品 · 解药与绷带已备好 #line:journal_draworganizednotes_07
+行囊 · 暂无新增物品 #line:journal_draworganizednotes_08
+手令 ·␠ #line:journal_draworganizednotes_09
+她已收好 #line:journal_draworganizednotes_10
+由你保管 #line:journal_draworganizednotes_11
+已发现 #line:journal_draworganizednotes_12
+防身剑 · 已取得（ #line:journal_draworganizednotes_13
+离店约定 #line:journal_draworganizednotes_14
+␀ #line:journal_draworganizednotes_14__2
+离店约定 #line:journal_draworganizednotes_15
+还未说定接下来的路 #line:journal_draworganizednotes_15__2
+现场与文书 #line:journal_draworganizednotes_16
+听过的证词 #line:journal_draworganizednotes_17
+这一栏还空着。新的见闻会按类别记在这里。 #line:journal_drawnotesection_01
+证词 #line:journal_drawnotesection_02
+文书 #line:journal_drawnotesection_03
+物证 #line:journal_drawnotesection_04
+观察 #line:journal_drawnotesection_05
+她昨夜的行动 #line:journal_updategamejournal_01
+外貌改变的缘故 #line:journal_updategamejournal_02
+昏睡的原因 #line:journal_updategamejournal_03
+桌边血迹的来处 #line:journal_updategamejournal_04
+老板手上的伤 #line:journal_updategamejournal_05
+纸页的来历 #line:journal_updategamejournal_06
+她不愿说的事 #line:journal_updategamejournal_07
+旧账上的往来 #line:journal_updategamejournal_08
+尚未发现的线索 #line:journal_truthtitle_01
+已确认 #line:journal_truthstatus_01
+待核对 #line:journal_truthstatus_02
+未发现 #line:journal_truthstatus_03
+图像 #line:journal_thumbnail_01
+占位 #line:journal_thumbnail_01__2
+线索 #line:journal_thumbnail_02
+待核 #line:journal_thumbnail_02__2
+？ #line:journal_thumbnail_03
+？ #line:journal_badge_01
+行旅手记 · 客栈之夜    已确认␠ #line:journal_drawjournal_01
+线索图卡 #line:journal_drawjournal_02
+随手记 / 物件 #line:journal_drawjournal_03
+\[J / Esc\] 合上 #line:journal_drawjournal_04
+这页还空着。留心眼前的物件与谈话，新的见闻会记在这里。 #line:journal_cluedetails_01
+证词 #line:journal_cluedetails_02
+文书 #line:journal_cluedetails_03
+观察 / 物证 #line:journal_cluedetails_04
+␀ #line:journal_cluedetails_05
+␀ #line:journal_cluedetails_05__2
+这些见闻已能相互印证。 #line:journal_cluedetails_05__3
+␀ #line:journal_cluedetails_06
+␀ #line:journal_cluedetails_06__2
+还留着疑问，先听听别的说法。␠ #line:journal_cluedetails_06__3
+客栈之夜 · 离店结局 #line:journal_drawclueending_01
+剑的来由 ·␠ #line:journal_drawclueending_02
+此夜留下的往事 · 已确认␠ #line:journal_drawclueending_03
+␠· 点击徽记查看；插画暂为占位。 #line:journal_drawclueending_04
+这段往事仍待核对。 #line:journal_drawclueending_05
+这一页仍然留白。 #line:journal_drawclueending_06
+R 重新开始 · F9 读取存档 #line:journal_drawclueending_07
+===

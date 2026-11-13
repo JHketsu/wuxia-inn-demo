@@ -59,6 +59,18 @@ WASD 移动；鼠标或方向键控制镜头（←→ 旋转，↑↓ 俯仰）�
 - 规则配置：Resources/InnNarrativeRules.json。Unity 菜单 Tools/Inn Demo/Validate Narrative Rules 检查依赖与顺序；Print Narrative Snapshot 查看状态与交互历史。
 - 完整维护文档：项目根目录 Docs/Narrative/客栈Demo_剧情状态与依赖配置_v1.1.md，含依赖图、事实目录、状态变更、对白优先级和测试记录。
 
+### 在 Unity 外编辑文案
+
+在任意文本编辑器打开 `Resources/InnDialogue` 下的文件：
+
+- [Boss.yarn](Resources/InnDialogue/Boss.yarn) 以 `BossTalk` 为入口，八个话题分别有自己的回答节点。用 VS Code 的 **Show Graph** 查看跳转，双击节点打开正文。它的 `<<if ...>>` 读取游戏剧情状态，`inn_boss_choice` 记录线索或进入取剑流程。
+- [StoryText.yarn](Resources/InnDialogue/StoryText.yarn) 按开场、借剑、救治、同行者、手令、离店约定等场景分成节点。游戏按行 ID 读取这些文案，节点在图中各自独立。[ExplorationText.yarn](Resources/InnDialogue/ExplorationText.yarn) 是探索提示和客房调查。
+- [JournalText.yarn](Resources/InnDialogue/JournalText.yarn) 是手记和结算界面，[EvidenceText.yarn](Resources/InnDialogue/EvidenceText.yarn) 是证据名称、出处和条件对白，[InterfaceText.yarn](Resources/InnDialogue/InterfaceText.yarn) 是操作提示和界面标签。
+
+改已有文字时保留 `#line:` ID。同一段的续行使用 `__2`、`__3` 等后缀，`␀` 表示空行，`␠` 表示需要保留的首尾空格。Yarn Project 会在 Unity 重新导入时读取这些文件。其余剧情的选项条件、状态变更和演出仍由现有 C# 与规则配置执行。
+
+[Boss.en.csv](Resources/InnDialogue/Boss.en.csv) 目前包含老板话题的英文译文。英文系统显示已有英文条目，缺少译文的文字显示简中。可在 Unity 中从 Yarn Project 导出字符串表，按原 ID 填写译文并关联对应语言。
+
 开场/二楼补正：先叫旁边床位的同行者，查看空床后任务更新为下楼找人。你们住北侧双床房，昨夜客人住南侧单床房；两个房门分别通向东侧公共走廊，再接楼梯。客人的药包/残食与散乱行李均在另一间房中。
 
 ## 2026-11-03 · 五房与 UI 占位

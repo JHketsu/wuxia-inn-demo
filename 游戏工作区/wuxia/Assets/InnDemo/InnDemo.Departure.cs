@@ -3,7 +3,7 @@ using UnityEngine;
 public partial class InnDemo
 {
     bool departing;
-    void BeginDeparture(){departing=true;CloseDialog();Say("女主 · 心想\n等她走到门边，再一起出去。");}
+    void BeginDeparture(){departing=true;CloseDialog();Say(Copy("story_begindeparture_01"));}
     void TickDeparture(){
         if(!story.CanLeave){departing=false;return;}
         Vector3 playerGoal=new(-.65f,0,-11.5f);
